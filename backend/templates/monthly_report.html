@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Monthly examination report</title></head>
+<body style="font-family:Segoe UI,Arial,sans-serif;background:#edf5ff;padding:30px;color:#183758">
+<main style="max-width:700px;margin:auto;background:white;padding:32px;border-radius:18px">
+<h1 style="color:#125ba5">Exortal</h1><h2>Monthly examination report</h2><p>{{ report.month }}</p>
+<table cellpadding="12" style="width:100%;border-collapse:collapse">
+<tr style="background:#e2f0ff"><th align="left">Metric</th><th align="right">Total</th></tr>
+<tr><td>Examinations conducted</td><td align="right">{{ report.examinations_conducted }}</td></tr>
+<tr><td>Students evaluated</td><td align="right">{{ report.students_evaluated }}</td></tr>
+<tr><td>Completed bookings</td><td align="right">{{ report.completed_bookings }}</td></tr>
+<tr><td>Pending evaluations at report generation</td><td align="right">{{ report.pending_evaluations }}</td></tr>
+</table><h3>Most active examiners</h3>
+<table cellpadding="10" style="width:100%">{% for row in report.examiner_workload %}<tr><td>{{ row.name }}</td><td>{{ row.evaluations }} evaluations</td></tr>{% else %}<tr><td>No evaluations were submitted during this month.</td></tr>{% endfor %}</table>
+<p>Reporting period: previous calendar month, in the institution's timezone.</p>
+</main></body></html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Examination reminder</title></head>
+<body style="font-family:Segoe UI,Arial,sans-serif;background:#edf5ff;padding:30px;color:#183758">
+<main style="max-width:640px;margin:auto;background:white;padding:32px;border-radius:18px">
+<h1 style="color:#125ba5">Exortal</h1><h2>Your examination is coming up</h2>
+<p>Hello {{ student_name }},</p>
+<p>This is your reminder for <strong>{{ examination_name }}</strong>.</p>
+<table cellpadding="10">
+<tr><th align="left">Date and time</th><td>{{ scheduled }}</td></tr>
+<tr><th align="left">Examiner</th><td>{{ examiner_name }}</td></tr>
+<tr><th align="left">Duration</th><td>{{ duration }} minutes</td></tr>
+<tr><th align="left">Location</th><td>{{ location or 'See the portal for details' }}</td></tr>
+</table>
+{% if meeting_link %}<p>Meeting: <a href="{{ meeting_link }}">{{ meeting_link }}</a></p>{% endif %}
+<h3>Examination instructions</h3><p style="white-space:pre-wrap">{{ instructions or 'Please arrive on time and bring your student ID.' }}</p>
+<p>Sign in to Exortal to review your booking.</p>
+</main></body></html>
